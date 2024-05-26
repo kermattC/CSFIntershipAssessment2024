@@ -1,8 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
-import breedsSlice from './reducers/breeds'
+import breedsReducer from './reducers/breeds'
+import formReducer from './reducers/formDetails'
+import dogPicsReducer from './reducers/dogPics'
 
 export const store = configureStore({
     reducer: {
-        breeds: breedsSlice
+        breeds: breedsReducer,
+        formDetails: formReducer,
+        dogPics: dogPicsReducer
     }
 })
+
