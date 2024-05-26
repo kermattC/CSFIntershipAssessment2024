@@ -13,6 +13,18 @@ There are some limitations that I was not able to fix during the 2 hours.
 3) I spent a bit too much time on the frontend, so I only have the core functionality of the backend. As a result I don't have a aesthetically pleasing way of presenting the results
 4) The design is not complete
 
+# What can be improved
+- Better error checking for fields, both in the front-end and back-end
+- Improve styling
+- Functionality for re-submitting. Currently, the form can be submitted more than once, but the dog picture is only updated the first time
+- Fixing bugs, such as the API call only being registered once. This is done to prevent an additional API call being made whenever the form is submitted, which may be due to incorrect use of the useEffect hook
+
+# What can be extended
+- Routes (via React Router) for other pages, such as viewing submission details
+- Verification for retrieving submission details. For example, a separate tab will appear if a user is logged in, and an additional one if the user is logged in as admin. The user can view their own past submissions and the admin can view all. The login functionality can be implemented using JWT's and refresh tokens
+
+# How application and api should be deployed
+After building the application, it can be deployed on cloud platforms such as AWS or Google Cloud. I am familiar with AWS, where I can use S3 storage via static web page hosting to host the web application. 
 
 # Before running, need to install packages
 - in this directory AND in the client directory, install packages:
