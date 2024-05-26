@@ -8,10 +8,6 @@ const getBreedsList = {
     url: URL_SERV + '/breeds/list/all'
 }
 
-const getDogPics = {
-    method: 'GET',
-    url: URL_SERV + '/breed'
-}
 
 export const fetchBreedsList = createAsyncThunk(
     'breeds/fetchBreedsList',
@@ -28,13 +24,21 @@ export const fetchDogPics = createAsyncThunk(
     'breeds/fetchDogPics',
     async (formParams) => {
         try {
+            if (formParams.breed === ''){
+                return
+            }
             console.log('Form data from thunk: ', formParams);
 
+            let dogPicsRequest = {
+                method: 'GET',
+                url: URL_SERV + '/breed'
+            };
+
             if (formParams.dogNumber === '1') {
-                getDogPics.url += `/${formParams.breed}/images/random`  
+                dogPicsRequest.url += `/${encodeURIComponent(formParams.breed)}/images/random`  
             }
-            console.log("getdogPics: ", getDogPics.url)
-            const response = await axios.request(getDogPics)
+            console.log("dogPicsRequest: ", dogPicsRequest.url)
+            const response = await axios.request(dogPicsRequest)
             return response.data;
         } catch (error) {
             console.error(error)

@@ -28,20 +28,15 @@ const Breeds = () => {
                 const keys = Object.keys(breeds)
 
                 const dogListItems = keys.map((key) => {
-                    const secondName = key.charAt(0).toUpperCase() + key.slice(1)
                     const dogName = breeds[key]
 
-                    // also need to capitalize the first letter since that is what the api requires
-                    // i don't like the nested return but it's the only thing i can think of at the moment
                     if (dogName.length > 0){
-                        return dogName.map((firstNameTemp) => {
-                            const firstName = firstNameTemp.charAt(0).toUpperCase() + firstNameTemp.slice(1);
-                            return (
-                                <Dropdown.Item key={firstName + '-' + secondName} eventKey={firstName + ' ' + secondName}>
-                                    {`${firstName} ${secondName}`}
-                                </Dropdown.Item>
-                            );
-                        });
+                        return dogName.map((firstName) => (
+                            <Dropdown.Item key={key + '-' + firstName} eventKey={key + '-' + firstName}>{`${key} ${firstName}`}</Dropdown.Item> // eventKey instead of onClick because onClick called handleSelect twice
+
+                        ));
+                    } else {
+                        return <Dropdown.Item key={key} eventKey={key}>{key}</Dropdown.Item>
                     }
                 })
                 setBreedsList(dogListItems)
