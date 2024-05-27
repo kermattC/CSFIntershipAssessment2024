@@ -18,6 +18,7 @@ There are some limitations that I was not able to fix during the 2 hours.
 - Improve styling
 - Functionality for re-submitting. Currently, the form can be submitted more than once, but the dog picture is only updated the first time
 - Fixing bugs, such as the API call only being registered once. This is done to prevent an additional API call being made whenever the form is submitted, which may be due to incorrect use of the useEffect hook
+- Notify the user of what is happening via feedback when the form is successfully submitted, as well as any type of errors. Can be implemented via toasts.
 
 # What can be extended
 - Routes (via React Router) for other pages, such as viewing submission details
