@@ -1,0 +1,1 @@
+My submission for the AI developer assessment. I wrote a toy implementation of how I would use a model for classifying carrots. Included in the directory is a jupyter notebook that contains my pipeline.
